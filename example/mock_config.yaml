@@ -5,29 +5,29 @@ kind: PruneConfig
 # Entry can contain:
 # - matchExpression: matches the file name.
 # - tags: filters by tags on the file.
-# - lastAccessDate: 
+# - lastAccessDate:
 selectors:
-# This matches file ending with suffix .pdf
-- matchExpression: "^.*\.pdf$"
-  tags: null
-  lastAccessDate: null
-# This matches files ending with suffix .pdf and have the following tags.
-- matchExpression: "*.pdf"
-  tags:
-    k8s.io/ack-s3: owned
-    some-other-tag: value
-  withoutTagKeys: ["keyA", "keyB"]
-# Remove old files up until a time
-  lastAccessDate:
-	   to: "YYYY-MM-DD HH:mm:ss" 
-  objMetadata:
-		 key1: val1
-# This matches files last accessed within specified range.
-# Either from/to can be omitted to denote after/before.
-# timezone is optional. Default to UTC if no timezone provided.
-- lastAccessDate:
-    timezone: UTC
-    from: "YYYY-MM-DD HH:mm:ss"
-    to: "YYYY-MM-DD HH:mm:ss"
-  matchExpression: null
-  tags: null
+  # This matches file ending with suffix .pdf
+  - matchExpression: '^.*\.pdf$'
+    tags: null
+    lastAccessDate: null
+  # This matches files ending with suffix .pdf and have the following tags.
+  - matchExpression: "*.pdf"
+    tags:
+      k8s.io/ack-s3: owned
+      some-other-tag: value
+    withoutTagKeys: ["keyA", "keyB"]
+    # Remove old files up until a time
+    lastAccessDate:
+      to: "2025-11-22 12:12:12"
+    objMetadata:
+      key1: val1
+  # This matches files last accessed within specified range.
+  # Either from/to can be omitted to denote after/before.
+  # timezone is optional. Default to UTC if no timezone provided.
+  - lastAccessDate:
+      timezone: UTC
+      from: "2025-11-22 12:12:12"
+      to: "2025-11-22 12:12:12"
+    matchExpression: null
+    tags: null
