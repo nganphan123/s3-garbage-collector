@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	. "github.com/nganphan123/s3-garbage-collector/types"
+	"github.com/nganphan123/s3-garbage-collector/types"
 	"sigs.k8s.io/yaml"
 )
 
@@ -15,7 +15,7 @@ func parser() {
 		return
 	}
 
-	var config DeleteConfig
+	var config types.DeleteConfig
 	err = yaml.Unmarshal(configContent, &config)
 	if err != nil {
 		fmt.Printf("err: %v\n", err)

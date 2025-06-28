@@ -1,13 +1,13 @@
 package types
 
 type DeleteConfig struct {
-	ApiVersion string     `json:"apiVersion,omitEmpty"`
-	Kind       string     `json:"kind,omitEmpty"`
+	ApiVersion string     `json:"apiVersion,omitempty"`
+	Kind       string     `json:"kind,omitempty"`
 	Selectors  []Selector `json:"selectors"`
 }
 
 type Selector struct {
-	MatchExpression string            `json:"matchExpression,omitEmpty"`
+	MatchExpression string            `json:"matchExpression,omitempty"`
 	Tags            map[string]string `json:"tags"`
 	LastAccess      *LastAccess       `json:"lastAccess"`
 	S3ObjMetaData   map[string]any    `json:"objMetadata"`
@@ -15,7 +15,7 @@ type Selector struct {
 }
 
 type LastAccess struct {
-	TimeZone string `json:"timezone,omitEmpty"`
-	FromDate string `json:"from,omitEmpty"`
-	ToDate   string `json:"to,omitEmpty"`
+	TimeZone string `json:"timezone,omitempty"`
+	FromDate string `json:"from,omitempty"`
+	ToDate   string `json:"to,omitempty"`
 }
