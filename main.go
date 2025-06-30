@@ -25,6 +25,8 @@ package main
 import (
 	"context"
 	"encoding/json"
+
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 // handleRequest is the main handler for Lambda application logics.
@@ -33,6 +35,5 @@ func handleRequest(ctx context.Context, event json.RawMessage) error {
 }
 
 func main() {
-	// lambda.Start(handleRequest)
-	parser()
+	lambda.Start(handleRequest)
 }

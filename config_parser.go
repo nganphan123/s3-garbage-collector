@@ -21,5 +21,5 @@ func parser() {
 		fmt.Printf("err: %v\n", err)
 		return
 	}
-	fmt.Println(config)
+	fmt.Printf("%v", config)
 }
